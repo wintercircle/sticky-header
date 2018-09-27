@@ -12,7 +12,6 @@
                 scrollStop: '=',
                 scrollableContainer: '=',
                 contentOffset: '=',
-                fixedWidth: '<',
                 fsmZIndex: '='
             },
             link: function(scope, element, attributes, control){
@@ -44,13 +43,7 @@
                         var clonedColumns = clonedHeader.find('th');
                         header.find('th').each(function (index, column) {
                             var clonedColumn = $(clonedColumns[index]);
-                            if (scope.fixedWidth) {
-                                clonedColumn.css( 'width', column.offsetWidth + 'px'); //fixed thead width
-                            } else {
-                                // fluid thead / table
-                                var finalWidthSet = column.offsetWidth / ($(window).innerWidth()-20)*100; // $(window) can be replace with a custom wrapper / container
-                                clonedColumn.css('width',finalWidthSet + '%');
-                            }
+                            clonedColumn.css('width', window.getComputedStyle(column).width);
                         });
                     }
                 };
