@@ -19,7 +19,8 @@
                     header = $(element, this),
                     clonedHeader = null,
                     scrollableContainer = $(scope.scrollableContainer),
-                    contentOffset = scope.contentOffset || 0;
+                    contentOffset = scope.contentOffset || 0,
+                    contentTop = 0;
 
                 var unbindScrollBodyWatcher = scope.$watch('scrollBody', function(newValue, oldValue) {
                     content = $(scope.scrollBody);
@@ -47,7 +48,9 @@
                 function determineVisibility(){
                     var scrollTop = scrollableContainer.scrollTop() + scope.scrollStop;
                     var scrollLeft = -scrollableContainer.scrollLeft() + content.offset().left;
-                    var contentTop = content.offset().top + contentOffset;
+                    if (contentTop === 0 && content.length !== 0 && content.position().top !== 0) {
+                      contentTop = content.position().top + contentOffset;
+                    }
                     var contentBottom = contentTop + content.outerHeight(false);
 
                     if ( (scrollTop > contentTop) && (scrollTop < contentBottom) ) {
