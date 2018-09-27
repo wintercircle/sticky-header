@@ -61,9 +61,7 @@
                     }
                     var scrollTop = scrollableContainer.scrollTop() + scope.scrollStop;
                     var scrollLeft = -scrollableContainer.scrollLeft() + content.offset().left;
-                    if (contentTop === 0 && content.length !== 0 && content.position().top !== 0) {
-                      contentTop = content.position().top + contentOffset;
-                    }
+                    contentTop = content.position().top + contentOffset;
                     var contentBottom = contentTop + content.outerHeight(false);
 
                     if ( (scrollTop > contentTop) && (scrollTop < contentBottom) ) {
