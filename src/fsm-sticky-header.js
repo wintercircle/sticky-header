@@ -45,6 +45,9 @@
                 };
 
                 function determineVisibility(){
+                    if (content.length === 0) {
+                        return;
+                    }
                     var scrollTop = scrollableContainer.scrollTop() + scope.scrollStop;
                     var scrollLeft = -scrollableContainer.scrollLeft() + content.offset().left;
                     var contentTop = content.offset().top + contentOffset;
