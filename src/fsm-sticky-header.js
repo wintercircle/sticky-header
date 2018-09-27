@@ -43,7 +43,7 @@
                         var clonedColumns = clonedHeader.find('th');
                         header.find('th').each(function (index, column) {
                             var clonedColumn = $(clonedColumns[index]);
-                            clonedColumn.css('width', window.getComputedStyle(column).width);
+                            clonedColumn.css('width', column.offsetWidth + 'px');
                         });
                     }
                 };
