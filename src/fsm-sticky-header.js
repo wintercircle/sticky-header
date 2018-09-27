@@ -16,10 +16,16 @@
             },
             link: function(scope, element, attributes, control){
                 var content,
+                    zIndex = 0,
                     header = $(element, this),
                     clonedHeader = null,
                     scrollableContainer = $(scope.scrollableContainer),
                     contentOffset = scope.contentOffset || 0;
+                if (scope.fsmZIndex !== 0 && !scope.fsmZIndex) {
+                    zIndex = 10000;
+                } else {
+                    zIndex = scope.fsmZIndex;
+                }
 
                 var unbindScrollBodyWatcher = scope.$watch('scrollBody', function(newValue, oldValue) {
                     content = $(scope.scrollBody);
@@ -105,7 +111,7 @@
                     clonedHeader.addClass('fsm-sticky-header');
                     clonedHeader.css({
                         position: 'fixed',
-                        'z-index': scope.fsmZIndex || 10000,
+                        'z-index': zIndex,
                         visibility: 'hidden'
                     });
                     calculateSize();
