@@ -21,6 +21,7 @@
                     parentElement = $(element).parent(),
                     clonedHeader = null,
                     scrollableContainer = $(scope.scrollableContainer),
+                    scrollStop = scope.scrollStop || 0;
                     contentOffset = scope.contentOffset || 0,
                     contentTop = 0;
                 if (scope.fsmZIndex !== 0 && !scope.fsmZIndex) {
@@ -53,7 +54,7 @@
                     if (content.length === 0) {
                         return;
                     }
-                    var scrollTop = scrollableContainer.scrollTop() + scope.scrollStop;
+                    var scrollTop = scrollableContainer.scrollTop() + scrollStop;
                     var scrollLeft = -scrollableContainer.scrollLeft() + content.offset().left;
                     contentTop = content.position().top + contentOffset;
                     var contentBottom = contentTop + content.outerHeight(false);
@@ -65,7 +66,7 @@
                         }
 
                         if ( scrollTop < contentBottom && scrollTop > contentBottom - clonedHeader.outerHeight(false) ){
-                            var top = contentBottom - scrollTop + scope.scrollStop - clonedHeader.outerHeight(false);
+                            var top = contentBottom - scrollTop + scrollStop - clonedHeader.outerHeight(false);
                             clonedHeader.css('top', top + 'px');
                         } else {
                             calculateSize();
@@ -97,7 +98,7 @@
 
                 function calculateSize() {
                     clonedHeader.css({
-                        top: scope.scrollStop,
+                        top: scrollStop,
                         width: header.outerWidth(),
                         left: header.offset().left
                     });
