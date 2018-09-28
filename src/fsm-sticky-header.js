@@ -20,10 +20,14 @@
                     header = $(element, this),
                     parentElement = $(element).parent(),
                     clonedHeader = null,
+                    inTabs = false,
                     scrollableContainer = $(scope.scrollableContainer),
                     scrollStop = scope.scrollStop || 0,
                     contentOffset = scope.contentOffset || 0,
                     contentTop = 0;
+                if (element.closest('md-tab-content').length !== 0) {
+                    inTabs = true;
+                }
                 if (scope.fsmZIndex !== 0 && !scope.fsmZIndex) {
                     zIndex = 10000;
                 } else {
@@ -60,6 +64,9 @@
                     var contentBottom = contentTop + content.outerHeight(false);
 
                     if ( (scrollTop > contentTop) && (scrollTop < contentBottom) ) {
+                        if (inTabs && element.closest('md-tab-content.md-active').length === 0) {
+                            return;
+                        }
                         if (!clonedHeader){
                             createClone();
                             clonedHeader.css({ "visibility": "visible"});
