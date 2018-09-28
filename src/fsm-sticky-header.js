@@ -18,8 +18,12 @@
                 var content,
                     header = $(element, this),
                     clonedHeader = null,
+                    inTabs = false,
                     scrollableContainer = $(scope.scrollableContainer),
                     contentOffset = scope.contentOffset || 0;
+                if (element.closest('md-tab-content').length !== 0) {
+                    inTabs = true;
+                }
 
                 var unbindScrollBodyWatcher = scope.$watch('scrollBody', function(newValue, oldValue) {
                     content = $(scope.scrollBody);
@@ -51,6 +55,9 @@
                     var contentBottom = contentTop + content.outerHeight(false);
 
                     if ( (scrollTop > contentTop) && (scrollTop < contentBottom) ) {
+                        if (inTabs && element.closest('md-tab-content.md-active').length === 0) {
+                            return;
+                        }
                         if (!clonedHeader){
                             createClone();
                             clonedHeader.css({ "visibility": "visible"});
