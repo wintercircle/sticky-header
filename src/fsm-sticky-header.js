@@ -18,6 +18,7 @@
                 var content,
                     zIndex = 0,
                     header = $(element, this),
+                    parentElement = $(element).parent(),
                     clonedHeader = null,
                     scrollableContainer = $(scope.scrollableContainer),
                     contentOffset = scope.contentOffset || 0,
@@ -80,6 +81,8 @@
                             clonedHeader = null;
 
                             header.removeClass('fsm-sticky-header');
+                            header.remove();
+                            parentElement.prepend(header);
                             header.css({
                                 position: 'relative',
                                 left: 0,
@@ -116,6 +119,7 @@
                         visibility: 'hidden'
                     });
                     calculateSize();
+                    clonedHeader.remove().appendTo(document.body);
                 };
 
                 function init() {
