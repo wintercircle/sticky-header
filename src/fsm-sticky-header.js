@@ -36,7 +36,7 @@
                         var clonedColumns = clonedHeader.find('th');
                         header.find('th').each(function (index, column) {
                             var clonedColumn = $(clonedColumns[index]);
-                            clonedColumn.css('width', window.getComputedStyle(column).width);
+                            clonedColumn.css('min-width', column.getBoundingClientRect().width + 'px');
                         });
                     }
                 };
