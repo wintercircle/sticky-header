@@ -125,7 +125,7 @@
 
                 function init() {
                     scrollableContainer.on('scroll.fsmStickyHeader', determineVisibility).trigger("scroll");
-                    scrollableContainer.on('resize.fsmStickyHeader', determineVisibility);
+                    $(window).on('resize', determineVisibility);
 
                     scope.$on('$destroy', function () {
                         scrollableContainer.off('.fsmStickyHeader');
