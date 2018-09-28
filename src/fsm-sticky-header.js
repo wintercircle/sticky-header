@@ -65,24 +65,30 @@
                         clonedHeader.css('left', scrollLeft + 'px');
                     } else {
                         if (clonedHeader){
-                            /*
-                             * remove cloned element (switched places with original on creation)
-                             */
-                            header.remove();
-                            header = clonedHeader;
-                            clonedHeader = null;
-
-                            header.removeClass('fsm-sticky-header');
-                            header.css({
-                                position: 'relative',
-                                left: 0,
-                                top: 0,
-                                width: 'auto',
-                                'z-index': 0,
-                                visibility: 'visible'
-                            });
+                            reset();
                         }
                     }
+                };
+
+                function reset(){
+                    /*
+                     * remove cloned element (switched places with original on creation)
+                     */
+                    header.remove();
+                    header = clonedHeader;
+                    clonedHeader = null;
+
+                    header.removeClass('fsm-sticky-header');
+                    header.remove();
+                    parentElement.prepend(header);
+                    header.css({
+                        position: 'relative',
+                        left: 0,
+                        top: 0,
+                        width: 'auto',
+                        'z-index': 0,
+                        visibility: 'visible'
+                    });
                 };
 
                 function calculateSize() {
