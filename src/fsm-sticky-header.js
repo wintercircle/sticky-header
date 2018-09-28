@@ -55,7 +55,7 @@
                     var contentBottom = contentTop + content.outerHeight(false);
 
                     if ( (scrollTop > contentTop) && (scrollTop < contentBottom) ) {
-                        if (inTabs && element.closest('md-tab-content.md-active').length === 0) {
+                        if (inTabs && parentElement.closest('md-tab-content.md-active').length === 0) {
                             return;
                         }
                         if (!clonedHeader){
