@@ -112,7 +112,7 @@
                         visibility: 'hidden'
                     });
                     calculateSize();
-                    clonedHeader.remove().appendTo(document.body);
+                    clonedHeader.remove().appendTo(scrollableContainer);
                 };
 
                 function init() {
