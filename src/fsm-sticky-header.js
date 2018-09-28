@@ -133,7 +133,7 @@
                         visibility: 'hidden'
                     });
                     calculateSize();
-                    clonedHeader.remove().appendTo(scrollableContainer);
+                    clonedHeader.detach().appendTo(scrollableContainer);
                 };
 
                 function init() {
