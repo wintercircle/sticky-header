@@ -123,6 +123,7 @@
 
                     scope.$on('$destroy', function () {
                         scrollableContainer.off('.fsmStickyHeader');
+                        reset();
                     });
                 }
             }
