@@ -19,7 +19,8 @@
                     header = $(element, this),
                     clonedHeader = null,
                     scrollableContainer = $(scope.scrollableContainer),
-                    contentOffset = scope.contentOffset || 0;
+                    contentOffset = scope.contentOffset || 0,
+                    scrollStop = scope.scrollStop || 0;
 
                 var unbindScrollBodyWatcher = scope.$watch('scrollBody', function(newValue, oldValue) {
                     content = $(scope.scrollBody);
@@ -45,7 +46,7 @@
                 };
 
                 function determineVisibility(){
-                    var scrollTop = scrollableContainer.scrollTop() + scope.scrollStop;
+                    var scrollTop = scrollableContainer.scrollTop() + scrollStop;
                     var scrollLeft = -scrollableContainer.scrollLeft() + content.offset().left;
                     var contentTop = content.offset().top + contentOffset;
                     var contentBottom = contentTop + content.outerHeight(false);
@@ -57,7 +58,7 @@
                         }
 
                         if ( scrollTop < contentBottom && scrollTop > contentBottom - clonedHeader.outerHeight(false) ){
-                            var top = contentBottom - scrollTop + scope.scrollStop - clonedHeader.outerHeight(false);
+                            var top = contentBottom - scrollTop + scrollStop - clonedHeader.outerHeight(false);
                             clonedHeader.css('top', top + 'px');
                         } else {
                             calculateSize();
@@ -87,7 +88,7 @@
 
                 function calculateSize() {
                     clonedHeader.css({
-                        top: scope.scrollStop,
+                        top: scrollStop,
                         width: header.outerWidth(),
                         left: header.offset().left
                     });
