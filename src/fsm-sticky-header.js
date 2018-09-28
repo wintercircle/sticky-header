@@ -80,7 +80,6 @@
 
                     header.removeClass('fsm-sticky-header');
                     header.remove();
-                    parentElement.prepend(header);
                     header.css({
                         position: 'relative',
                         left: 0,
