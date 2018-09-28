@@ -21,7 +21,7 @@
                     parentElement = $(element).parent(),
                     clonedHeader = null,
                     scrollableContainer = $(scope.scrollableContainer),
-                    scrollStop = scope.scrollStop || 0;
+                    scrollStop = scope.scrollStop || 0,
                     contentOffset = scope.contentOffset || 0,
                     contentTop = 0;
                 if (scope.fsmZIndex !== 0 && !scope.fsmZIndex) {
