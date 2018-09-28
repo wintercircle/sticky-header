@@ -55,7 +55,7 @@
                         return;
                     }
                     var scrollTop = scrollableContainer.scrollTop() + scrollStop;
-                    var scrollLeft = -scrollableContainer.scrollLeft() + content.offset().left;
+                    var scrollLeft = header.offset().left;
                     contentTop = content.offset().top + scrollableContainer.scrollTop() + contentOffset;
                     var contentBottom = contentTop + content.outerHeight(false);
 
