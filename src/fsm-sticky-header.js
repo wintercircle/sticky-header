@@ -22,7 +22,7 @@
                     contentOffset = scope.contentOffset || 0;
 
                 var unbindScrollBodyWatcher = scope.$watch('scrollBody', function(newValue, oldValue) {
-                    content = $(scope.scrollBody);
+                    content = $(element).closest(scope.scrollBody);
                     init();
                     unbindScrollBodyWatcher();
                 });
