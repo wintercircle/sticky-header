@@ -74,6 +74,9 @@
                     /*
                      * remove cloned element (switched places with original on creation)
                      */
+                    if (!clonedHeader) {
+                        return;
+                    }
                     header.remove();
                     header = clonedHeader;
                     clonedHeader = null;
