@@ -142,7 +142,6 @@
                     $(window).on('resize', determineVisibility);
 
                     scope.$on('$destroy', function () {
-                        scrollableContainer.off('.fsmStickyHeader');
                         reset();
                     });
                 }
