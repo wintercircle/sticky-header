@@ -26,7 +26,7 @@ npm install fsm-sticky-header
 ```html
   <head>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 	<script src="https://rawgithub.com/FutureStateMobile/sticky-headers/master/src/fsm-sticky-header.js"></script>
   </head>
 ```
